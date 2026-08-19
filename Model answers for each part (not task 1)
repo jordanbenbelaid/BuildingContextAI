@@ -1,0 +1,19 @@
+### Ideal Task 2 Prompt (Minimal Context)
+"Write the `calculateOrderTotal` function in `@orderService.ts` using the type interface from `@order.ts`."
+
+### Ideal Task 3 Prompt (C-R-E-A-T-E Structure)
+Context: Look at `@order.ts` and `@orderService.ts`.
+Role: Senior Backend Engineer focused on defensive, functional TypeScript.
+Expectations: Implement `calculateOrderTotal(order: Order): number` that calculates the subtotal (price * quantity) and applies a 10% discount if `discountCode === 'SAVE10'`.
+Constraints: Pure function—do NOT mutate the original `Order` object. No `any` types. Do NOT edit `@order.ts`.
+Test: Throw an Error if any `item.quantity <= 0`.
+Exemplar: Provide a JSDoc block demonstrating usage with a mock order.
+
+### Ideal `.cursor/rules/immutability.mdc` File
+---
+description: Service Layer Rules
+globs: "src/services/*.ts"
+---
+# Rules
+- Never mutate function arguments; return new objects or primitive values.
+- Never use `any`. Always import types explicitly from `@/types`.
